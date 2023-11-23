@@ -1,9 +1,13 @@
 import { Prisma } from "@prisma/client";
 import { prismaDatabase } from "../utils/prisma";
 import { mapKeys } from "lodash";
+import { validatorObject } from "../utils/yup/location.validation";
 
 export class CitiesService {
   static async ListOfAllCities(): Promise<Prisma.citiesSelect[]> {
+
+    // await validatorObject({},{ id })
+    
     const cities = await prismaDatabase.$queryRaw<Prisma.citiesSelect[]>`CALL PROCEDURE_BUSCAR_CITIES()`;
     const objCities = cities.map((objeto: any) =>
       mapKeys(objeto, (valor, chave) => {
