@@ -3,8 +3,8 @@ generator client {
 }
 
 datasource db {
-  provider = "mysql"
-  url      = env("DATABASE_URL")
+  provider     = "mysql"
+  url          = env("DATABASE_URL")
 }
 
 model branches {
@@ -187,4 +187,9 @@ enum what_the_customer_wants_bedrooms {
 
 enum what_the_customer_has_bedrooms {
   UM
+}
+
+model logs {
+  id        Int    @id @default(autoincrement())
+  name_json String? @db.Text
 }

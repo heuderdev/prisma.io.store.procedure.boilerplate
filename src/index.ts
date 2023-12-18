@@ -4,6 +4,8 @@ import cors from "cors";
 import { routes } from "./routers";
 import errorHandler from "./middlewares/errorHandler";
 
+import './utils/schedule';
+
 const PORT =  Number(process.env.PORT)
 
 const app = express();
