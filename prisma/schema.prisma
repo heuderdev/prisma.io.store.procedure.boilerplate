@@ -130,7 +130,7 @@ model what_the_customer_has {
   properti_id            Int
   citie_id               Int
   customers_id           Int
-  bedrooms               Int
+  bedrooms               what_the_customer_has_bedrooms
   total_area             Int
   useful_area            Int
   property_initial_value Decimal                        @db.Decimal(10, 2)
@@ -158,7 +158,7 @@ model what_the_customer_wants {
   branche_id             Int                              @default(1)
   customers_id           Int
   properti_id            Int                              @default(1)
-  bedrooms               Int 
+  bedrooms               what_the_customer_wants_bedrooms
   total_area             Int
   useful_area            Int
   property_initial_value Decimal                          @db.Decimal(10, 2)
@@ -181,3 +181,10 @@ enum users_is_active {
   INACTIVE
 }
 
+enum what_the_customer_wants_bedrooms {
+  UM
+}
+
+enum what_the_customer_has_bedrooms {
+  UM
+}

@@ -1,7 +1,10 @@
+import 'dotenv/config'
 import express from "express";
 import cors from "cors";
 import { routes } from "./routers";
 import errorHandler from "./middlewares/errorHandler";
+
+const PORT =  Number(process.env.PORT)
 
 const app = express();
 
@@ -12,7 +15,4 @@ app.use(errorHandler);
 
 app.use(routes);
 
-app.listen(9999, '0.0.0.0', () => console.log("server running on port 9999"));
-
-
-
+app.listen(PORT, '0.0.0.0', () => console.log(`server running on port ${PORT}`));

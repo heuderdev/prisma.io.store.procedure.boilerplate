@@ -9,8 +9,8 @@ export class CitiesService {
     // await validatorObject({},{ id })
     
     const cities = await prismaDatabase.$queryRaw<Prisma.citiesSelect[]>`CALL PROCEDURE_BUSCAR_CITIES()`;
-    const objCities = cities.map((objeto: any) =>
-      mapKeys(objeto, (valor, chave) => {
+    const objCities = cities.map((objeto: Prisma.citiesSelect) =>
+      mapKeys(objeto, (valor, chave) => {        
         switch (chave) {
           case "f0":
             return "id";
